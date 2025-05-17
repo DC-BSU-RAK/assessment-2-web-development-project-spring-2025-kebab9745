@@ -1,0 +1,373 @@
+/* ================================================
+   CYBERNETIC NEON THEME - GLOBAL VARIABLES
+================================================= */
+:root {
+    /* Cybernetic Color Palette */
+    --neon-blue: #00f2ff;
+    --neon-pink: #ff00f2;
+    --neon-purple: #b400ff;
+    --cyber-dark: #0a0a12;
+    --cyber-gray: #1a1a24;
+    --cyber-light: #e0e0ff;
+    --cyber-accent: #6e00ff;
+    
+    /* Typography */
+    --font-main: 'Orbitron', 'Roboto', sans-serif;
+    --font-heading: 'Rajdhani', 'Arial Narrow', sans-serif;
+    
+    /* Spacing */
+    --space-unit: 0.5rem;
+    --space-sm: calc(var(--space-unit) * 2);
+    --space-md: calc(var(--space-unit) * 3);
+    --space-lg: calc(var(--space-unit) * 4);
+    --space-xl: calc(var(--space-unit) * 6);
+    
+    /* Effects */
+    --glow: 0 0 10px currentColor;
+    --glow-sm: 0 0 5px currentColor;
+    --glow-lg: 0 0 15px currentColor;
+    --transition: all 0.25s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ================================================
+   BASE STYLES - CYBERSPACE INTERFACE
+================================================= */
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    margin: 0;
+    background-color: var(--cyber-dark);
+    color: var(--cyber-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--space-xl);
+    background-image: 
+        linear-gradient(
+            to bottom right,
+            rgba(0, 242, 255, 0.03) 0%,
+            rgba(180, 0, 255, 0.05) 50%,
+            rgba(255, 0, 242, 0.03) 100%
+        );
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--neon-blue);
+    text-shadow: var(--glow-sm);
+}
+
+/* ================================================
+   CYBER NAVIGATION - HUD STYLE
+================================================= */
+nav {
+    background-color: rgba(26, 26, 36, 0.9);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 4px;
+    margin-bottom: var(--space-xl);
+    width: 100%;
+    max-width: 1200px;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 
+        0 0 15px rgba(0, 242, 255, 0.2),
+        inset 0 0 10px rgba(0, 242, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+}
+
+nav ul li a {
+    font-size: 1.1rem;
+    padding: var(--space-unit) var(--space-sm);
+    border-radius: 2px;
+    position: relative;
+    color: var(--cyber-light);
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    color: var(--neon-pink);
+    text-shadow: var(--glow);
+}
+
+nav ul li a.active {
+    color: var(--neon-blue);
+    font-weight: bold;
+    text-shadow: var(--glow);
+    border-bottom: 2px solid var(--neon-blue);
+}
+
+nav ul li a::before {
+    content: '[';
+    position: absolute;
+    left: -8px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+nav ul li a::after {
+    content: ']';
+    position: absolute;
+    right: -8px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after,
+nav ul li a.active::before,
+nav ul li a.active::after {
+    opacity: 1;
+}
+
+/* ================================================
+   GAME INFO CONTAINER - TERMINAL STYLE
+================================================= */
+.game-info {
+    background: rgba(26, 26, 36, 0.8);
+    padding: var(--space-lg);
+    border-radius: 4px;
+    margin-bottom: var(--space-lg);
+    border: 1px solid var(--neon-purple);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 
+        0 0 20px rgba(180, 0, 255, 0.3),
+        inset 0 0 15px rgba(180, 0, 255, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+.game-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--neon-blue),
+        var(--neon-pink),
+        var(--neon-purple),
+        transparent
+    );
+    animation: scanline 4s linear infinite;
+}
+
+@keyframes scanline {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+}
+
+/* ================================================
+   BACK BUTTON - CYBER CONTROL
+================================================= */
+.back-button-container {
+    margin-bottom: var(--space-md);
+    width: 100%;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-unit);
+    padding: var(--space-unit) var(--space-sm);
+    background-color: rgba(0, 242, 255, 0.1);
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    border-radius: 2px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.back-button:hover {
+    background-color: rgba(0, 242, 255, 0.2);
+    box-shadow: var(--glow);
+    transform: translateX(-3px);
+}
+
+.back-button::before {
+    content: '←';
+}
+
+/* ================================================
+   GAME CARD - HOLO DISPLAY
+================================================= */
+.game-card {
+    background: rgba(30, 30, 40, 0.6);
+    border-radius: 4px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--neon-purple);
+    box-shadow: 
+        0 0 10px rgba(180, 0, 255, 0.2),
+        inset 0 0 5px rgba(180, 0, 255, 0.1);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 5px 20px rgba(180, 0, 255, 0.4),
+        inset 0 0 10px rgba(180, 0, 255, 0.2);
+}
+
+.game-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--neon-blue),
+        transparent
+    );
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 2px;
+    margin-bottom: var(--space-sm);
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border: 1px solid var(--neon-blue);
+    box-shadow: var(--glow-sm);
+}
+
+/* ================================================
+   DETAILS LIST - DATA MATRIX
+================================================= */
+.details-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+}
+
+.details-list li {
+    padding: var(--space-sm);
+    background: rgba(40, 40, 50, 0.5);
+    border-radius: 2px;
+    border-left: 3px solid var(--neon-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.details-list li::before {
+    content: '>';
+    position: absolute;
+    left: var(--space-unit);
+    color: var(--neon-blue);
+    font-weight: bold;
+}
+
+.details-list strong {
+    color: var(--neon-pink);
+    font-weight: 600;
+    margin-left: var(--space-md);
+}
+
+/* ================================================
+   PRICE INFO - CYBER TRANSACTION
+================================================= */
+.price-info {
+    margin-top: var(--space-md);
+    font-weight: bold;
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+    padding: var(--space-sm);
+    background: rgba(0, 242, 255, 0.1);
+    border-radius: 2px;
+    text-align: center;
+    border: 1px solid var(--neon-blue);
+    text-shadow: var(--glow-sm);
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 0.8; box-shadow: var(--glow-sm); }
+    to { opacity: 1; box-shadow: var(--glow); }
+}
+
+.platform-price {
+    margin-left: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--cyber-light);
+    opacity: 0.8;
+}
+
+.platform-price strong {
+    color: var(--neon-pink);
+}
+
+/* ================================================
+   RESPONSIVE DESIGN - MOBILE HUD
+================================================= */
+@media (max-width: 768px) {
+    :root {
+        --space-unit: 0.4rem;
+    }
+    
+    body {
+        padding: var(--space-md);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: var(--space-unit);
+    }
+    
+    .game-info {
+        padding: var(--space-md);
+        width: 95%;
+    }
+    
+    .details-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    h2, h3 {
+        font-size: 1.2rem;
+    }
+    
+    .game-card {
+        padding: var(--space-sm);
+    }
+    
+    .price-info {
+        font-size: 1rem;
+    }
+}

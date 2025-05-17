@@ -1,0 +1,347 @@
+/* ================================================
+    CYBERNETIC NEON THEME - GLOBAL VARIABLES
+================================================= */
+:root {
+    /* Cybernetic Color Palette */
+    --neon-blue: #00f2ff;
+    --neon-pink: #ff00f2;
+    --neon-purple: #b400ff;
+    --cyber-dark: #0a0a12;
+    --cyber-gray: #1a1a24;
+    --cyber-light: #e0e0ff;
+    --cyber-accent: #6e00ff;
+     --neon-yellow: #faff00;
+    /* Typography */
+    --font-main: 'Orbitron', 'Roboto', sans-serif;
+    --font-heading: 'Rajdhani', 'Arial Narrow', sans-serif;
+
+    /* Spacing */
+    --space-unit: 0.5rem;
+    --space-sm: calc(var(--space-unit) * 2);
+    --space-md: calc(var(--space-unit) * 3);
+    --space-lg: calc(var(--space-unit) * 4);
+    --space-xl: calc(var(--space-unit) * 6);
+
+    /* Effects */
+    --glow: 0 0 10px currentColor;
+    --glow-sm: 0 0 5px currentColor;
+    --glow-lg: 0 0 15px currentColor;
+    --transition: all 0.25s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ================================================
+    BASE STYLES FOR NEWS TAB
+================================================= */
+body {
+    font-family: var(--font-main);
+    color: var(--cyber-light);
+    background-color: var(--cyber-dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: var(--space-xl);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--neon-pink); /* Default heading color */
+    text-shadow: var(--glow-sm);
+}
+
+a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--neon-pink);
+    text-shadow: var(--glow);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: var(--glow-sm);
+}
+
+/* ================================================
+    NEWS CONTAINER
+================================================= */
+.news-container {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: rgba(26, 26, 36, 0.8);
+    padding: var(--space-lg);
+    border-radius: 8px;
+    border: 1px solid var(--neon-purple);
+    box-shadow: 0 0 20px rgba(180, 0, 255, 0.3);
+}
+
+/* ================================================
+    NEWS ARTICLE STYLES
+================================================= */
+.news-article {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--neon-blue);
+}
+
+.news-article:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.article-title {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+}
+
+.article-meta {
+    color: var(--cyber-gray);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+}
+
+.article-content {
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+}
+
+.article-content p {
+    margin-bottom: var(--space-md);
+}
+
+/* ================================================
+    NEWS SIDEBAR (OPTIONAL)
+================================================= */
+.news-sidebar {
+    float: right;
+    width: 30%;
+    margin-left: var(--space-lg);
+    background-color: rgba(26, 26, 36, 0.7);
+    padding: var(--space-md);
+    border-radius: 4px;
+    border: 1px solid var(--neon-purple);
+    box-shadow: 0 0 10px rgba(180, 0, 255, 0.2);
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--neon-blue);
+    text-shadow: var(--glow-sm);
+}
+
+.sidebar-link {
+    display: block;
+    margin-bottom: var(--space-sm);
+    color: var(--neon-pink);
+}
+
+.sidebar-link:hover {
+    color: var(--neon-blue);
+    text-shadow: var(--glow);
+}
+
+/* ================================================
+    RESPONSIVE DESIGN
+================================================= */
+@media (max-width: 768px) {
+    .news-sidebar {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+        margin-top: var(--space-lg);
+    }
+     .news-article img {
+        height: auto; /* Make images responsive */
+    }
+}
+
+/* ================================================
+    SPECIFIC ADJUSTMENTS FOR NEWS PAGE
+================================================= */
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.news-card {
+    background: rgba(26, 26, 36, 0.7);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 0 10px rgba(180, 0, 255, 0.2);
+     border: 1px solid var(--neon-purple);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(180, 0, 255, 0.3);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px; /* Maintain a fixed height, or adjust as needed */
+    object-fit: cover;  /* Important for consistent image sizing */
+    border-bottom: 1px solid var(--neon-blue);
+}
+
+.news-card h3 {
+    margin-top: var(--space-md);
+    padding: 0 var(--space-md);
+    font-size: 1.2rem;
+     color: var(--neon-yellow); /* Changed to neon yellow */
+    text-shadow: var(--glow-sm); /* Keep glow, or adjust if needed */
+}
+
+.news-card p {
+    padding: var(--space-sm) var(--space-md);
+    color: var(--cyber-light);
+    opacity: 0.8;
+}
+
+.news-card .read-more {
+    margin: var(--space-md);
+    padding: 0 var(--space-md);
+    display: inline-block;
+    font-weight: 600;
+    color: var(--neon-blue);
+    position: relative;
+}
+
+.news-card .read-more::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    transition: width var(--transition);
+}
+
+.news-card .read-more:hover::after {
+    width: 100%;
+}
+.news-page {
+    padding-top: 80px; /* Add padding to the top to account for fixed header */
+}
+
+/* ================================================
+    HEADER STYLES
+================================================= */
+header {
+    position: relative;
+    padding: var(--space-sm) 0;
+    background-color: rgba(26, 26, 36, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.1);
+    z-index: 100;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out logo, nav, search */
+    align-items: center; /* Vertically center items */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    background: linear-gradient(to right, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--glow-sm);
+}
+
+nav ul {
+    display: flex; /* Make the navigation links horizontal */
+    gap: var(--space-lg);
+    list-style: none; /* Remove bullet points */
+    margin: 0;  /* Reset default list styles */
+    padding: 0;
+}
+
+nav a {
+    position: relative;
+    padding: var(--space-unit) 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--neon-pink);
+    transition: var(--transition);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    transition: width var(--transition);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--neon-blue);
+    text-shadow: var(--glow);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    border-radius: 2px 0 0 2px;
+    background: rgba(26, 26, 36, 0.7);
+    color: var(--cyber-light);
+    outline: none;
+}
+
+.search-bar button {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--neon-blue);
+    color: var(--cyber-dark);
+    border: none;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    transition: var(--transition);
+    text-shadow: var(--glow-sm);
+}
+
+.search-bar button:hover {
+    background: rgba(0, 242, 255, 0.2);
+    box-shadow: var(--glow);
+    color: var(--cyber-light);
+}

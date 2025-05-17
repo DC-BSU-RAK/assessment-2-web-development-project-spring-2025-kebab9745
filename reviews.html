@@ -1,0 +1,314 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Roboto:wght@400;500;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================================================
+            CYBERNETIC NEON THEME - GLOBAL VARIABLES
+        ================================================= */
+        :root {
+            /* Cybernetic Color Palette */
+            --neon-blue: #00f2ff;
+            --neon-pink: #ff00f2;
+            --neon-purple: #b400ff;
+            --cyber-dark: #0a0a12;
+            --cyber-gray: #1a1a24;
+            --cyber-light: #e0e0ff;
+            --cyber-accent: #6e00ff;
+
+            /* Typography */
+            --font-main: 'Orbitron', 'Roboto', sans-serif;
+            --font-heading: 'Rajdhani', 'Arial Narrow', sans-serif;
+
+            /* Spacing */
+            --space-unit: 0.5rem;
+            --space-sm: calc(var(--space-unit) * 2);
+            --space-md: calc(var(--space-unit) * 3);
+            --space-lg: calc(var(--space-unit) * 4);
+            --space-xl: calc(var(--space-unit) * 6);
+
+            /* Effects */
+            --glow: 0 0 10px currentColor;
+            --glow-sm: 0 0 5px currentColor;
+            --glow-lg: 0 0 15px currentColor;
+            --transition: all 0.25s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        /* ================================================
+            BASE STYLES
+        ================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--cyber-light);
+            background-color: var(--cyber-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--neon-blue);
+            text-shadow: var(--glow-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        a {
+            color: var(--neon-pink);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--neon-blue);
+            text-shadow: var(--glow);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ================================================
+            UTILITY CLASSES
+        ================================================= */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-md);
+            background-color: var(--neon-blue);
+            color: var(--cyber-dark);
+            border-radius: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 1px solid var(--neon-blue);
+            text-shadow: var(--glow-sm);
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 242, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+            color: var(--cyber-light);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-sm);
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--neon-blue);
+            text-shadow: var(--glow);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--neon-pink);
+        }
+
+        /* ================================================
+            PAGE STYLES
+        ================================================= */
+        header {
+            padding: var(--space-md) 0;
+            background-color: rgba(26, 26, 36, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo h1{
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--neon-pink);
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--neon-blue);
+            text-shadow: var(--glow);
+        }
+
+        .review-section {
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .review-section h2 {
+            font-size: 2rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .review-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: var(--space-md);
+            background-color: rgba(26, 26, 36, 0.7);
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(180, 0, 255, 0.2);
+            margin-bottom: var(--space-xl);
+        }
+
+        .review-content h3 {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            margin-bottom: var(--space-md);
+        }
+
+        .review-content p {
+            color: var(--cyber-light);
+            line-height: 1.7;
+            margin-bottom: var(--space-md);
+        }
+
+        footer {
+            background-color: var(--cyber-dark);
+            color: var(--cyber-light);
+            padding: var(--space-xl) 0;
+            border-top: 1px solid rgba(0, 242, 255, 0.2);
+            text-align: center;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: var(--space-md);
+            color: var(--neon-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-home:hover {
+            color: var(--neon-pink);
+            text-shadow: var(--glow-sm);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Game Reviews</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#cyberpunk-2077">Cyberpunk 2077</a></li>
+                <li><a href="#god-of-war-ragnarok">God of War Ragnarok</a></li>
+                <li><a href="#horizon-forbidden-west">Horizon Forbidden West</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="cyberpunk-2077" class="review-section">
+            <h2>Cyberpunk 2077</h2>
+            <div class="review-content">
+                <h3>Initial Release Issues</h3>
+                <p>
+                    Cyberpunk 2077's launch was plagued by bugs, performance problems, and missing features,
+                    especially on consoles.  This led to widespread criticism and damaged CD Projekt Red's
+                    reputation.
+                </p>
+                <h3>Redemption Through Updates</h3>
+                <p>
+                    Years of patches and updates have significantly improved the game.  Performance is better,
+                    many bugs have been fixed, and promised features have been added.
+                </p>
+                <h3>Current Status</h3>
+                <p>
+                    Cyberpunk 2077 is now generally well-received, particularly on PC and current-gen consoles.
+                    The "Phantom Liberty" expansion has further boosted its reputation.  While the initial
+                    launch is still a sore point, the game is now considered a worthwhile experience by many.
+                </p>
+            </div>
+        </section>
+
+        <section id="god-of-war-ragnarok" class="review-section">
+            <h2>God of War Ragnarok</h2>
+            <div class="review-content">
+                <h3>Critical and Commercial Success</h3>
+                <p>
+                    God of War Ragnarok was highly praised by critics and a commercial success.  It continues
+                    the story of Kratos and Atreus in Norse mythology.
+                </p>
+                <h3>Narrative and Gameplay Excellence</h3>
+                <p>
+                    The game is celebrated for its strong narrative, emotional depth, and excellent performances.
+                    Its combat system is refined and engaging, and its world is beautiful and immersive.
+                </p>
+                <h3>Awards and Legacy</h3>
+                <p>
+                    Ragnarok won numerous awards, including Game of the Year at The Game Awards 2022.  It's
+                    considered a standout title in the series and one of the best games of its generation.
+                </p>
+            </div>
+        </section>
+
+        <section id="horizon-forbidden-west" class="review-section">
+            <h2>Horizon Forbidden West</h2>
+            <div class="review-content">
+                <h3>Positive Reception</h3>
+                <p>
+                    Horizon Forbidden West was well-received upon release.  It expands on the world of
+                    Horizon Zero Dawn, following Aloy's journey.
+                </p>
+                <h3>Stunning World and Improved Gameplay</h3>
+                <p>
+                   The game features a large, visually impressive open world and builds upon the gameplay of
+                   its predecessor with new mechanics and enemy types.
+                </p>
+                <h3>Narrative and Themes</h3>
+                <p>
+                    The game's story explores themes of environmentalism and the impact of past actions.  Aloy's
+                    character development and the supporting cast are strong.
+                </p>
+            </div>
+        </section>
+        <a href="index.html" class="back-home">Back to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Game Reviews</p>
+    </footer>
+</body>
+</html>
